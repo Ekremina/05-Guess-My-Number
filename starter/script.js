@@ -36,27 +36,39 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.highscore').textContent = highscore;
     }
 
-    //when guess too high
-  } else if (guess > secretNumber) {
+    //when guess is wrong
+  } else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = '📈 Too high!';
+      document.querySelector('.message').textContent =
+        guess > secretNumber ? '📈 Too high!' : '📉 Too low!';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
       document.querySelector('.message').textContent = '💣You lost the game!';
       document.querySelector('.message').textContent = 0;
     }
-    //when guess is too low
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      document.querySelector('.message').textContent = '📉 Too low!';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.message').textContent = '💣You lost the game!';
-      document.querySelector('.score').textContent = 0;
-    }
   }
+  //     //when guess too high
+  //   } else if (guess > secretNumber) {
+  //     if (score > 1) {
+  //       document.querySelector('.message').textContent = '📈 Too high!';
+  //       score--;
+  //       document.querySelector('.score').textContent = score;
+  //     } else {
+  //       document.querySelector('.message').textContent = '💣You lost the game!';
+  //       document.querySelector('.message').textContent = 0;
+  //     }
+  //     //when guess is too low
+  //   } else if (guess < secretNumber) {
+  //     if (score > 1) {
+  //       document.querySelector('.message').textContent = '📉 Too low!';
+  //       score--;
+  //       document.querySelector('.score').textContent = score;
+  //     } else {
+  //       document.querySelector('.message').textContent = '💣You lost the game!';
+  //       document.querySelector('.score').textContent = 0;
+  //     }
+  //   }
 });
 
 //selected check button and added an event listener
